@@ -1,0 +1,43 @@
+body
+{
+    
+position: relative;
+ height: 100%;
+ background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg");
+ background-size: cover;
+}
+
+h5
+{
+    font-weight: 400;
+}
+
+.container
+{
+    margin-top: 80px;
+    width: 400px;
+    height: 700px;
+    opacity: 0.8;
+
+}
+
+.tabs .indicator
+{
+    background-color: #e0f2f1;
+    height: 60px;
+    opacity: 0.3;
+}
+
+.form-container
+{
+    padding: 40px;
+    padding-top: 10px;
+     box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
+
+
+}
+
+.confirmation-tabs-btn
+{
+    position: absolute;
+}
