@@ -30,7 +30,7 @@ body {
  }
 #nav2{
   margin-left: 600px;
-  margin-top: -100px;
+  margin-top: -110px;
 }
 a {
   -webkit-transition: .3s all ease;
@@ -1181,5 +1181,3 @@ h1, h2, h3, h4, h5,
   @media (max-width: 991.98px) {
     .overlap-left {
       margin-left: 0px; } }
-
-
