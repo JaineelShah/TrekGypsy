@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Libre+Baskerville:400,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<style type="text/css">
+		// fonts
+$font-family-sans-serif:  'Montserrat', sans-serif;
+$font-family-serif:       'Libre Baskerville', serif;
+// colors
+$blue-base: #092539;
+$yellow-base: #dfa903;
+$yellow-dark: #bcbb81;
+$white: #fff;
+$grey-bg: #f2f2f2;
+$grey-text: #545454;
+$grey-line: #dddddd;
+$grey-circle: #7d7d7d;
+
+*, *::after, *::before {
+  // @include box-sizing(border-box);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: $grey-bg;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h3 {
+  font-size: 2.3rem;
+  font-weight: 500;
+  margin: 0;
+  font-family: $font-family-serif;
+  color: $grey-text;
+}
+::-moz-selection { 
+  color: $blue-base;
+  background: $yellow-base;
+}
+::selection { 
+  color: $blue-base;
+  background: $yellow-base;
+}
+
+.white-stripe {
+  background: $white;
+  text-align: center;
+  padding: 35px 0;
+
+  p {
+    margin-bottom: 0;
+  }   
+}
+
+.white-stripe.arrow {
+  position: relative;
+
+  &::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid $white;
+    clear: both;
+    margin-left: -20px;
+    z-index: 10;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding: 100px 0; 
+  text-align: center;
+  font-family: $font-family-sans-serif;
+  
+  .row {
+    margin-bottom: 50px;
+    @media only screen and (min-width:768px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &::before {
+    /* this is the vertical line */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -2px;
+    height: 100%;
+    width: 3px;
+    background: $grey-line;
+    z-index: -2;
+  }
+
+  .country-block {           
+    padding: 50px 0;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $white;    
+    background: rgba($grey-text, .6);
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+
+    i {
+      content: ''; 
+      background-position: center;
+      background-size: 100%;   
+      background-repeat: no-repeat;   
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      -moz-transition: background-size .3s;
+      -webkit-transition: background-size .3s;
+      transition: background-size .3s;      
+    }
+
+    i.jp {
+      background-image: url('http://asia.vasilis-tsirimokos.com/img/banners/japan-small.jpg');      
+    }
+    i.vt {
+      background-image: url('http://asia.vasilis-tsirimokos.com/img/banners/vietnam-small.jpg');    
+    }
+    i.cb {
+      background-image: url('http://asia.vasilis-tsirimokos.com/img/banners/cambodia-small.jpg');  
+    }
+    i.th {
+      background-image: url('http://asia.vasilis-tsirimokos.com/img/banners/thailand-small.jpg');  
+    }
+    i.ml {
+      background-image: url('http://asia.vasilis-tsirimokos.com/img/banners/malaysia-small.jpg');  
+    }
+    i.in {
+      background-image: url('http://asia.vasilis-tsirimokos.com/img/banners/indonesia-small.jpg');  
+    }
+    i.gr {
+      background-image: url('http://asia.vasilis-tsirimokos.com/img/banners/greece-small.jpg');  
+    }
+
+    @media only screen and (min-width:768px) {
+      width: 48%;
+      margin-right: 2%; 
+
+      &::before, &::after {
+        content:'';
+        position: absolute;
+        right: -1px;
+        height: 50%;
+        padding-left:3%;
+        background: $grey-bg;
+        -ms-transform-origin: 100% 0;
+        -webkit-transform-origin: 100% 0;
+        transform-origin: 100% 0;
+      }
+      &::before {
+        bottom: 50%;        
+        -ms-transform: skewY(45deg);
+        -webkit-transform: skewY(45deg);
+        transform: skewY(45deg);
+      }
+      &::after {
+        top: 50%;
+        -ms-transform: skewY(-45deg);
+        -webkit-transform: skewY(-45deg);
+        transform: skewY(-45deg);
+      }    
+      &.reverse {
+        margin-left: 2%;
+        margin-right: 0;
+      }
+      &.reverse::before, &.reverse::after {
+        left: -1px;
+        right: auto;        
+        -ms-transform-origin: 0 100%;
+        -webkit-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+      }
+      &.reverse::before {
+        bottom: 50%;
+        -ms-transform: skewY(-45deg);
+        -webkit-transform: skewY(-45deg);
+        transform: skewY(-45deg);
+      }
+      &.reverse::after {
+        top: 50%;
+        -ms-transform: skewY(45deg);
+        -webkit-transform: skewY(45deg);
+        transform: skewY(45deg);
+      }  
+    }  
+  }
+
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+
+  a:hover .country-block { 
+    background: rgba($blue-base, .7);
+    color: $yellow-base;      
+    i {
+      background-size: 110%;  
+    }    
+  }
+
+  .date-block {
+    >div {
+      position: relative;
+      font-family: $font-family-serif;
+      background-color: $white;
+      padding: 10px 30px 10px 30px;
+      border: 2px solid $grey-circle;
+      display: inline-block;
+      margin-top: 15px;    
+      @media only screen and (min-width: 768px) {
+        margin-top: 50px;  
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      &::before {
+        content:'';
+        position: absolute;
+        top: 60px;
+        left: -10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 4px solid $grey-circle;
+        background: $grey-bg;
+        box-shadow: 0 0 0 5px $grey-bg;
+        z-index: 10;
+      }
+      &::after {
+        content:'';
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 50%;
+        height: 3px;
+        background: $grey-line;
+        z-index: -1;
+      }
+      &.reverse::before {
+        right: -10px;
+        left: auto;
+      }
+
+      &.reverse::after {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+}
+	</style>
+</head>
+<body>
+<section class="white-stripe arrow">
+ <div class="container">       
+  <h3>Destinations</h3>
+ </div>
+</section>
+<section class="timeline">
+            <div class="container">                
+                <div class="row">
+                    <a href="http://asia.vasilis-tsirimokos.com/japan.html">
+                        <div class="country-block col-sm-6">
+                            <i class="jp"></i>
+                            Japan
+                        </div>
+                    </a>
+                    <div class="date-block col-sm-6">
+                        <div>11 April - 28 April</div>
+                    </div>                    
+                </div>
+                <div class="row">
+                    <a href="http://asia.vasilis-tsirimokos.com/vietnam.html">
+                        <div class="country-block reverse col-sm-6 col-sm-push-6">
+                            <i class="vt"></i>
+                            Vietnam
+                        </div>
+                    </a>                        
+                    <div class="date-block reverse col-sm-6 col-sm-pull-6">
+                        <div>28 April - 20 May</div>
+                    </div>                                    
+                </div>
+                <div class="row">
+                    <a href="http://asia.vasilis-tsirimokos.com/cambodia.html">
+                        <div class="country-block cb col-sm-6">
+                            <i class="cb"></i>
+                            Cambodia
+                        </div>
+                    </a>
+                    <div class="date-block col-sm-6">
+                        <div>20 May - 29 May</div>
+                    </div>                    
+                </div>
+                <div class="row">   
+                    <a href="http://asia.vasilis-tsirimokos.com/thailand.html">
+                        <div class="country-block reverse col-sm-6 col-sm-push-6">
+                            <i class="th"></i>
+                            Thailand
+                        </div>
+                    </a>                  
+                    <div class="date-block reverse col-sm-6 col-sm-pull-6">
+                        <div>29 May - 19 June</div>
+                    </div>                                       
+                </div>
+                <div class="row">
+                    <a href="http://asia.vasilis-tsirimokos.com/malaysia.html">
+                        <div class="country-block col-sm-6">
+                            <i class="ml"></i>
+                            Malaysia
+                        </div>
+                    </a>
+                    <div class="date-block col-sm-6">
+                        <div>19 June - 3 July</div>
+                    </div>                    
+                </div>
+                <div class="row">  
+                    <a href="http://asia.vasilis-tsirimokos.com/indonesia.html">
+                        <div class="country-block reverse col-sm-6 col-sm-push-6">
+                            <i class="in"></i>
+                            Indonesia
+                        </div>
+                    </a>                   
+                    <div class="date-block reverse col-sm-6 col-sm-pull-6">
+                        <div>3 July - 28 July</div>
+                    </div>                                       
+                </div>
+                <div class="row">
+                    <a href="#">
+                        <div class="country-block tr col-sm-6">
+                            <i class="gr"></i>
+                            Greece
+                        </div>
+                    </a>
+                    <div class="date-block col-sm-6">
+                        <div>28 July - 3 August</div>
+                    </div>                    
+                </div>                
+            </div>
+        </section>
+</body>
+</html>

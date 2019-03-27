@@ -1,0 +1,10 @@
+.container{
+  position: relative;
+  width: 100%
+}
+.container video{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);                            
+}
